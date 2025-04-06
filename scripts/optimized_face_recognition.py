@@ -88,9 +88,11 @@ class OptimizedFaceRecognition:
                 x2 = int(detections[0, 0, i, 5] * width)
                 y2 = int(detections[0, 0, i, 6] * height)
                 
-                # Ensure coordinates are within bounds
-                x1, y1 = max(0, x1), max(0, y1)
-                x2, y2 = min(width, x2), min(height, y2)
+                padding = int((x2 - x1)*10)  # 10% padding
+                x1 = max(0, x1 - padding)
+                y1 = max(0, y1 - padding)
+                x2 = min(width, x2 + padding)
+                y2 = min(height, y2 + padding)
                 
                 faces.append((x1, y1, x2, y2))
         

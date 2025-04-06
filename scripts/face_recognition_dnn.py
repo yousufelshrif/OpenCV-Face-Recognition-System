@@ -61,7 +61,7 @@ class FaceRecognition:
         faces = []
         for i in range(detections.shape[2]):
             confidence = detections[0, 0, i, 2]
-            if confidence > 0.5:  # Confidence threshold
+            if confidence > 0.7:  # Confidence threshold
                 x1 = int(detections[0, 0, i, 3] * width)
                 y1 = int(detections[0, 0, i, 4] * height)
                 x2 = int(detections[0, 0, i, 5] * width)
