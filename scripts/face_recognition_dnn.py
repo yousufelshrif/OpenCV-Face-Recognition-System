@@ -185,8 +185,10 @@ class FaceRecognition:
                 
                 # Recognize face
                 try:
-                    id, conf = self.face_recognizer.predict(gray)
-                    if conf < 100:
+                    id, pred = self.face_recognizer.predict(gray)
+                    conf = int(100 * (1 - pred / 300))
+
+                    if conf > 99:
                         name = self.label_map.get(id, "Unknown")
                         text = f"{name} (Conf: {conf:.1f})"
                     else:
