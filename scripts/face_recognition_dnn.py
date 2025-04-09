@@ -8,6 +8,7 @@ class FaceRecognition:
         self.face_detector = self._init_face_detector()
         self.face_recognizer = cv2.face.LBPHFaceRecognizer_create()
         self.label_map = {}
+        self.confidence_threshold = 50  # Adjust this value (0-100)
         
     def _init_face_detector(self):
         """Initialize OpenCV's DNN face detector"""
@@ -186,9 +187,10 @@ class FaceRecognition:
                 # Recognize face
                 try:
                     id, pred = self.face_recognizer.predict(gray)
-                    conf = int(100 * (1 - pred / 300))
-
-                    if conf > 99:
+                    distance_threshold = 100  
+                    if pred < distance_threshold:
+                        # Optionally, compute a confidence percentage (optional conversion)
+                        conf = int(100 * (1 - pred / distance_threshold))
                         name = self.label_map.get(id, "Unknown")
                         text = f"{name} (Conf: {conf:.1f})"
                     else:
