@@ -102,4 +102,4 @@ def main():
     print("Program closed")
 
 if __name__ == "__main__":
-    main() 
+    main()
