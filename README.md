@@ -1,6 +1,6 @@
 # OpenCV Face Recognition System
 
-A face-recognition component developed and deployed as part of a larger graduation project: a full control-unit system built around Raspberry Pi hardware constraints. This module detects faces in camera frames and identifies enrolled users with a locally trained LBPH recognizer. It combines OpenCV’s DNN-based face detector with an LBPH model trained from labeled image folders.
+A face-recognition component developed and deployed as part of a larger control system: a full control-unit system built around Raspberry Pi hardware constraints. This module detects faces in camera frames and identifies enrolled users with a locally trained LBPH recognizer. It combines OpenCV’s DNN-based face detector with an LBPH model trained from labeled image folders.
 
 ## Features
 
